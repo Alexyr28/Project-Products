@@ -1,7 +1,6 @@
 package com.alexyr.product.entity;
 
 import java.time.Instant;
-import java.time.LocalDate;
 
 import jakarta.persistence.*;
 
@@ -24,8 +23,6 @@ public class Product {
     @Column(nullable = false)
     private Integer stock;
 
-    private LocalDate dueDate;
-
     private Instant completedAt;
 
     //Campos de Auditoria
@@ -40,6 +37,9 @@ public class Product {
         Instant now = Instant.now();
         this.createdAt = now;
         this.updatedAt = now;
+        if (this.completedAt == null) {
+            this.completedAt = now;
+        }
     }
 
     @PreUpdate
@@ -87,14 +87,6 @@ public class Product {
 
     public void setStock(Integer stock) {
         this.stock = stock;
-    }
-
-    public LocalDate getDueDate() {
-        return dueDate;
-    }
-
-    public void setDueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
     }
 
     public Instant getCompletedAt() {

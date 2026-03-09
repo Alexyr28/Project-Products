@@ -6,7 +6,6 @@ public class ProductResponse {
     private String description;
     private Double price;
     private Integer stock;
-    private java.time.LocalDate dueDate;
     private java.time.Instant completedAt;
     private java.time.Instant createdAt;
     private java.time.Instant updatedAt;
@@ -51,14 +50,6 @@ public class ProductResponse {
         this.stock = stock;
     }
 
-    public java.time.LocalDate getDueDate() {
-        return dueDate;
-    }
-
-    public void setDueDate(java.time.LocalDate dueDate) {
-        this.dueDate = dueDate;
-    }
-
     public java.time.Instant getCompletedAt() {
         return completedAt;
     }
@@ -83,3 +74,4 @@ public class ProductResponse {
         this.updatedAt = updatedAt;
     }
 }
+

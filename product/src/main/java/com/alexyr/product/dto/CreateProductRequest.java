@@ -1,7 +1,5 @@
 package com.alexyr.product.dto;
 
-import java.time.LocalDate;
-import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -13,9 +11,6 @@ public class CreateProductRequest {
 
     @Size(max = 2000, message = "description must be <= 2000 chars")
     private String description;
-
-    @JsonAlias("date")
-    private LocalDate dueDate;
 
     @NotNull(message = "price is required")
     private Double price;
@@ -37,14 +32,6 @@ public class CreateProductRequest {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public LocalDate getDueDate() {
-        return dueDate;
-    }
-
-    public void setDueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
     }
 
     public Double getPrice() {
