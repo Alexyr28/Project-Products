@@ -37,9 +37,6 @@ public class Product {
         Instant now = Instant.now();
         this.createdAt = now;
         this.updatedAt = now;
-        if (this.completedAt == null) {
-            this.completedAt = now;
-        }
     }
 
     @PreUpdate

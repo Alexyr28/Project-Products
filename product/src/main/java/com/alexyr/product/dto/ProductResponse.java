@@ -6,7 +6,6 @@ public class ProductResponse {
     private String description;
     private Double price;
     private Integer stock;
-    private java.time.Instant completedAt;
     private java.time.Instant createdAt;
     private java.time.Instant updatedAt;
 
@@ -48,14 +47,6 @@ public class ProductResponse {
 
     public void setStock(Integer stock) {
         this.stock = stock;
-    }
-
-    public java.time.Instant getCompletedAt() {
-        return completedAt;
-    }
-
-    public void setCompletedAt(java.time.Instant completedAt) {
-        this.completedAt = completedAt;
     }
 
     public java.time.Instant getCreatedAt() {

@@ -79,7 +79,6 @@ public class ProductServiceImpl implements ProductService{
         r.setDescription(a.getDescription());
         r.setPrice(a.getPrice());
         r.setStock(a.getStock());
-        r.setCompletedAt(a.getCompletedAt());
         r.setCreatedAt(a.getCreatedAt());
         r.setUpdatedAt(a.getUpdatedAt());
         return r;
