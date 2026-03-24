@@ -3,6 +3,8 @@ package com.alexyr.product.entity;
 import java.time.Instant;
 
 import jakarta.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -25,7 +27,14 @@ public class Product {
 
     private Instant completedAt;
 
-    //Campos de Auditoria
+    @ManyToOne
+    @JoinColumn(name = "brand_id")
+    private Brand brand;
+
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<PriceHistory> priceHistories = new ArrayList<>();
+
+    // Campos de Auditoria
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
 
@@ -43,9 +52,9 @@ public class Product {
     protected void onUpdate() {
         this.updatedAt = Instant.now();
     }
-    //Fin campos Auditoria
+    // Fin campos Auditoria
 
-    //Getter y Setters
+    // Getter y Setters
     public Long getId() {
         return id;
     }
@@ -93,6 +102,26 @@ public class Product {
     public void setCompletedAt(Instant completedAt) {
         this.completedAt = completedAt;
     }
+
+    // Relacion con Brand
+    public Brand getBrand() {
+        return brand;
+    }
+
+    public void setBrand(Brand brand) {
+        this.brand = brand;
+    }
+    // Fin relacion con Brand
+
+    // Relacion con PriceHistory
+    public List<PriceHistory> getPriceHistories() {
+        return priceHistories;
+    }
+
+    public void setPriceHistories(List<PriceHistory> priceHistories) {
+        this.priceHistories = priceHistories;
+    }
+    // Fin relacion con PriceHistory
 
     public Instant getCreatedAt() {
         return createdAt;

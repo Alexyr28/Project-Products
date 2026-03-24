@@ -18,6 +18,9 @@ public class CreateProductRequest {
     @NotNull(message = "stock is required")
     private Integer stock;
 
+    private Long brandId;
+
+    // Getter y Setters
     public String getName() {
         return name;
     }
@@ -48,5 +51,13 @@ public class CreateProductRequest {
 
     public void setStock(Integer stock) {
         this.stock = stock;
+    }
+
+    public Long getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(Long brandId) {
+        this.brandId = brandId;
     }
 }

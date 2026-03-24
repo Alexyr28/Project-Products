@@ -6,9 +6,13 @@ public class ProductResponse {
     private String description;
     private Double price;
     private Integer stock;
+    private Long brandId;
+    private String brandName;
+    private String brandCountry;
     private java.time.Instant createdAt;
     private java.time.Instant updatedAt;
 
+    // Getter y Setters
     public Long getId() {
         return id;
     }
@@ -49,6 +53,30 @@ public class ProductResponse {
         this.stock = stock;
     }
 
+    public Long getBrandId() {
+        return brandId;
+    }
+
+    public void setBrandId(Long brandId) {
+        this.brandId = brandId;
+    }
+
+    public String getBrandName() {
+        return brandName;
+    }
+
+    public void setBrandName(String brandName) {
+        this.brandName = brandName;
+    }
+
+    public String getBrandCountry() {
+        return brandCountry;
+    }
+
+    public void setBrandCountry(String brandCountry) {
+        this.brandCountry = brandCountry;
+    }
+
     public java.time.Instant getCreatedAt() {
         return createdAt;
     }
@@ -65,4 +93,3 @@ public class ProductResponse {
         this.updatedAt = updatedAt;
     }
 }
-
