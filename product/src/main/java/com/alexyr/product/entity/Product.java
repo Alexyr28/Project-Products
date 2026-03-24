@@ -5,6 +5,8 @@ import java.time.Instant;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "product")
@@ -36,6 +38,10 @@ public class Product {
 
     @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private Specification specification;
+
+    @ManyToMany
+    @JoinTable(name = "product_tag", joinColumns = @JoinColumn(name = "product_id"), inverseJoinColumns = @JoinColumn(name = "tag_id"))
+    private Set<Tag> tags = new HashSet<>();
 
     // Campos de Auditoria
     @Column(nullable = false, updatable = false)
@@ -135,6 +141,16 @@ public class Product {
         this.specification = specification;
     }
     // Fin relacion con Specification
+
+    // Relacion con Tag
+    public Set<Tag> getTags() {
+        return tags;
+    }
+
+    public void setTags(Set<Tag> tags) {
+        this.tags = tags;
+    }
+    // Fin relacion con Tag
 
     public Instant getCreatedAt() {
         return createdAt;
