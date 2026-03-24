@@ -34,6 +34,9 @@ public class Product {
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<PriceHistory> priceHistories = new ArrayList<>();
 
+    @OneToOne(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Specification specification;
+
     // Campos de Auditoria
     @Column(nullable = false, updatable = false)
     private Instant createdAt;
@@ -122,6 +125,16 @@ public class Product {
         this.priceHistories = priceHistories;
     }
     // Fin relacion con PriceHistory
+
+    // Relacion con Specification
+    public Specification getSpecification() {
+        return specification;
+    }
+
+    public void setSpecification(Specification specification) {
+        this.specification = specification;
+    }
+    // Fin relacion con Specification
 
     public Instant getCreatedAt() {
         return createdAt;
